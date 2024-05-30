@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Handling</title>
+    <style>
+        body { background-color: white; }
+        a:hover { background-color: yellow; }
+    </style>
+    <script>
+        function changeBackground(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        function changeBackgroundDoubleClick(color) {
+            if (event.type === 'dblclick') {
+                document.body.style.backgroundColor = color;
+            }
+        }
+
+        function changeBackgroundHold() {
+            if (event.type === 'mousedown') {
+                document.body.style.backgroundColor = 'brown';
+            } else if (event.type === 'mouseup') {
+                document.body.style.backgroundColor = 'white';
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="changeBackground('blue')">Change to Blue</button>
+    <button ondblclick="changeBackgroundDoubleClick('pink')">Change to Pink</button>
+    <button onmousedown="changeBackgroundHold()" onmouseup="changeBackgroundHold()">Change to Brown</button>
+    <a href="#" onmouseover="changeBackground('yellow')" onmouseout="changeBackground('white')">Change on Hover</a>
+</body>
+</html>

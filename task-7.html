@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Select</title>
+    <script>
+        function populateCities() {
+            var countrySelect = document.getElementById('country');
+            var citySelect = document.getElementById('cities');
+            var selectedCountry = countrySelect.options[countrySelect.selectedIndex].value;
+            citySelect.innerHTML = '';
+
+            if (selectedCountry === 'ger') {
+                var cities = ['Berlin', 'Hamburg', 'Munich'];
+            } else if (selectedCountry === 'usa') {
+                var cities = ['New York', 'Los Angeles', 'Chicago'];
+            } else if (selectedCountry === 'ukr') {
+                var cities = ['Kyiv', 'Lviv', 'Odessa'];
+            }
+
+            cities.forEach(function(city) {
+                var option = document.createElement('option');
+                option.text = city;
+                citySelect.add(option);
+            });
+
+            var selectedCountryName = countrySelect.options[countrySelect.selectedIndex].text;
+            var selectedCityName = citySelect.options[citySelect.selectedIndex].text;
+            document.getElementById('selectedCountry').innerText = 'Selected Country: ' + selectedCountryName;
+            document.getElementById('selectedCity').innerText = 'Selected City: ' + selectedCityName;
+        }
+
+        function updateSelectedCity() {
+            var citySelect = document.getElementById('cities');
+            var selectedCityName = citySelect.options[citySelect.selectedIndex].text;
+            document.getElementById('selectedCity').innerText = 'Selected City: ' + selectedCityName;
+        }
+    </script>
+</head>
+<body>
+    <select name="country" id="country" onchange="populateCities()">
+        <option value="ger">Germany</option>
+        <option value="usa">USA</option>
+        <option value="ukr">Ukraine</option>
+    </select>
+    <select name="cities" id="cities" onchange="updateSelectedCity()"></select>
+    <p id="selectedCountry"></p>
+    <p id="selectedCity"></p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Option</title>
+    <script>
+        function deleteOption() {
+            var select = document.getElementById('selectBox');
+            select.remove(select.selectedIndex);
+        }
+    </script>
+</head>
+<body>
+    <select id="selectBox">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+        <option value="4">Option 4</option>
+        <option value="5">Option 5</option>
+    </select>
+    <button onclick="deleteOption()">Delete Selected</button>
+</body>
+</html>

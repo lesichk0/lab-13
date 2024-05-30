@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Events</title>
+    <script>
+        function showMessage(message) {
+            document.getElementById('message').innerText = message;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="showMessage('I was pressed!')" 
+            onmouseover="showMessage('Mouse on me!')"
+            onmouseout="showMessage('Mouse is not on me!')">
+        Click Me!
+    </button>
+    <p id="message"></p>
+</body>
+</html>
